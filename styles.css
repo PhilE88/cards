@@ -1,0 +1,38 @@
+.card {
+  height: 336px;
+  width: 240px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 4px;
+  font-size: 24px;
+}
+
+#top {
+  text-align: left;
+  height: 10%;
+}
+
+#middle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80%;
+  text-align: center;
+  word-spacing: 8px;
+  /* border-top: 1px solid red;
+  border-bottom: 1px solid red; */
+}
+
+#bottom {
+  /* text-align: right; */
+  height: 10%;
+  transform: rotate(180deg)
+}
+
+p {
+  margin: 0px;
+}
+
+#cardBack {
+  background: linear-gradient(#4F6D7F, #54dc88);
+}
