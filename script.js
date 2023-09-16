@@ -77,8 +77,8 @@ class Deck {
 
 }
 
-let myDeck = new Deck();
-myDeck.shuffleDeck();
+let myDeck = new Deck(true);
+// myDeck.shuffleDeck();
 
 const cardBack = document.getElementById('cardBack');
 const cardFront = document.getElementById('cardFront');
@@ -89,11 +89,12 @@ let symbol;
 cardBack.addEventListener('click', () => {
   let content = "";
   let card = myDeck.cards.pop();
-  value.forEach(v => card.value == 13 ? v.innerText = "K" :
-    card.value == 12 ? v.innerText = "Q" :
-      card.value == 11 ? v.innerText = "J" :
-        card.value == 1 ? v.innerText = "A" :
-          v.innerText = card.value);
+  value.forEach(v => card.value == 14 ? v.innerText = "JOKER" :
+    card.value == 13 ? v.innerText = "K" :
+      card.value == 12 ? v.innerText = "Q" :
+        card.value == 11 ? v.innerText = "J" :
+          card.value == 1 ? v.innerText = "A" :
+            v.innerText = card.value);
   cardFront.style.color = card.color;
   if (card.suit == "hearts") {
     symbol = "♥ ";
@@ -107,11 +108,15 @@ cardBack.addEventListener('click', () => {
   if (card.suit == "spades") {
     symbol = "♠ ";
   }
-  suit.forEach(s => s.innerText = symbol);
+  suit.forEach(s => card.value == 14 ? s.innerText = "JK" : s.innerText = symbol);
+
   for (let i = 1; i <= card.value; i++) {
     content += symbol;
   }
-  if (card.value == 13) {
+
+  if (card.value == 14) {
+    mid.innerText = "JOKKER"
+  } else if (card.value == 13) {
     mid.innerText = "K";
   } else if (card.value == 12) {
     mid.innerText = "Q"
